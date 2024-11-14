@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 
 
+
 const LeftNav = () => {
    const [categoryItem, setCategoryItem] = useState([])
    useEffect(()=>{
@@ -15,14 +16,14 @@ const LeftNav = () => {
     
     return (
       <div>
-        <h1>All Categories {categoryItem?.length} </h1>
+        <h1>All Categories( {categoryItem?.length}) </h1>
 
-        <div className="flex flex-col gap-2 mt-3">
-          {categoryItem?.map((category, i) => (
-            <NavLink  className='bg-base-100'
-            key={i}>{category.category_name}{" "}
-            </NavLink>
-          ))}
+        <div className="flex flex-col gap-2 mt-3 ">
+            {
+                categoryItem.map(items => <NavLink to={`/category/${items.category_id}`} className='btn'
+
+                key={items.category_id}> {items.category_name}  </NavLink>  )
+            }
         </div>
       </div>
     );

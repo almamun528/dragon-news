@@ -4,6 +4,7 @@ import Marque from '../Components/Marque';
 import NavBar from '../Components/NavBar';
 import { Outlet } from 'react-router-dom';
 import LeftNav from '../Components/LeftNav';
+import RightNAvBar from '../Components/RightNAvBar';
 
 
 const HomeLayout = () => {
@@ -20,11 +21,9 @@ const HomeLayout = () => {
             <LeftNav></LeftNav>
           </div>
 
-          <div className='col-span-6 '>Main Content <Outlet></Outlet>  </div>
+          <div className='col-span-6 '><Outlet></Outlet></div>
 
-          <div className="right col-span-3">  Right sidebar </div>
-
-
+          <div className="right col-span-3">  <RightNAvBar></RightNAvBar> </div>
         </main>
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import image from '../assets/logo.png'
+import moment from 'moment';
 
 
 
@@ -10,7 +11,8 @@ const Logo = () => {
         <p className="capitalize text-gray-500 text-xl">
           Journalism without fear of favour
         </p>
-        <p>Sunday, November 27, 2025</p>
+        {/* <p>moment().format('dddd')</p> */}
+        <p> {moment().format("LL")} </p>
       </div>
     );
 };
