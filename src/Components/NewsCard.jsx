@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NewsCard = ({singleNews}) => {
-    console.log(singleNews, "singleNEws");
+    // console.log(singleNews, "singleNEws");
         const {
           details,
           author,

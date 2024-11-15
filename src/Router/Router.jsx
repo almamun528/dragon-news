@@ -3,7 +3,9 @@ import HomeLayout from "../Layout/HomeLayout";
 import About from "../Components/About";
 import Career from "../Components/Career";
 import CategoryNews from "../Components/CategoryNews";
-
+import AuthLayout from "../Layout/AuthLayout";
+import Login from "../Components/Login";
+import Register from "../Components/Register";
 
 const router = createBrowserRouter([
   {
@@ -11,13 +13,17 @@ const router = createBrowserRouter([
     element: <HomeLayout></HomeLayout>,
     children: [
       {
-        path:''
-        , element: <Navigate to={`/category/01`}></Navigate>
+        path: "",
+        element: <Navigate to={`/category/01`}></Navigate>,
       },
       {
         path: "/category/:id",
         element: <CategoryNews></CategoryNews>,
-        loader: ({params}) =>fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`)},
+        loader: ({ params }) =>
+          fetch(
+            `https://openapi.programming-hero.com/api/news/category/${params.id}`
+          ),
+      },
     ],
   },
   {
@@ -28,6 +34,20 @@ const router = createBrowserRouter([
     path: "career",
     element: <Career></Career>,
   },
+  {
+    path: "auth",
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>,
+      },
+    ],
+  },
 ]);
 
-export default router
+export default router;

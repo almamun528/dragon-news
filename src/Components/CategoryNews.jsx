@@ -4,18 +4,6 @@ import NewsCard from './NewsCard';
 
 const CategoryNews = () => {
     const {data:news}= useLoaderData()
-    const {
-      details,
-      author,
-      image_url,
-      thumbnail_url,
-      title,
-      total_view,
-      rating,
-    } = news;
-    // const { name, published_date, img } = data.author;
-    
-// console.log(news,'hello');
 
   return (
     <>

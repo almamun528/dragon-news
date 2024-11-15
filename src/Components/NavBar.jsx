@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 
 
@@ -18,9 +18,12 @@ const NavBar = () => {
 
           <nav className="right flex gap-2 items-center">
             <FaUser className="text-4xl"></FaUser>
-            <button className="btn bg-black text-white hover:bg-gray-900 rounded-none py-1 px-5">
+            <Link
+              to="/auth/login"
+              className="btn bg-black text-white hover:bg-gray-900 rounded-none py-1 px-5"
+            >
               Log In
-            </button>
+            </Link>
           </nav>
         </header>
       </main>
