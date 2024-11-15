@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
+import { AuthContext } from "../ContextApi/AuthProvider";
 
 
 const NavBar = () => {
+  const { user, logOutUser } = useContext(AuthContext);
   return (
     <>
       <main>
@@ -18,12 +20,23 @@ const NavBar = () => {
 
           <nav className="right flex gap-2 items-center">
             <FaUser className="text-4xl"></FaUser>
-            <Link
-              to="/auth/login"
-              className="btn bg-black text-white hover:bg-gray-900 rounded-none py-1 px-5"
-            >
-              Log In
-            </Link>
+
+            {user && user?.email ? (
+              <button
+                onClick={logOutUser}
+                className="btn bg-black text-white hover:bg-gray-900 rounded-none py-1 px-5"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to="/auth/login"
+                className="btn bg-black text-white hover:bg-gray-900 rounded-none py-1 px-5"
+              >
+                {" "}
+                Login{" "}
+              </Link>
+            )}
           </nav>
         </header>
       </main>
