@@ -12,7 +12,6 @@ const handleFormSubmit = e =>{
     const photo = form.get('photo')
     const email = form.get('email')
     const password = form.get('password')
-    console.log(name, email, password, 'here is your all information');
     // this function is for user creation 
     createNewUser(email, password)
       .then((result) => {

@@ -10,6 +10,7 @@ const NewsCard = ({singleNews}) => {
           thumbnail_url,
           title,
           total_view,
+          _id,
           rating,
         } = singleNews;
     return (
@@ -29,7 +30,7 @@ const NewsCard = ({singleNews}) => {
             <img src={image_url} alt="" />
           </picture>
           <p className="my-2"> {details} </p>
-          <Link className="text-orange-400"> Read More </Link>
+          <Link  to={`/news/${_id}`} className="text-orange-400"> Read More </Link>
         </div>
       </section>
     );

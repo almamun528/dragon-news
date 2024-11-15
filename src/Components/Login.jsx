@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../ContextApi/AuthProvider';
 
 
 const Login = () => {
     const {loginUser,setUser} = useContext(AuthContext)
+    const location = useLocation()
+    console.log(location);
+    const navigate = useNavigate()
     const handleLoginForm = e =>{
-
         e.preventDefault();
         const form = new FormData(e.target);
         const email = form.get("email");
@@ -16,6 +18,8 @@ const Login = () => {
         .then(result =>{
             const user = result.user
             setUser(user)
+            navigate(location?.state? location.state : '/')
+
         })
         .catch(error=>{
            alert(error?.message)
