@@ -4,6 +4,7 @@ import {
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../Firebase/firebase.init";
 
@@ -43,6 +44,10 @@ useEffect(()=>{
 const logOutUser =()=>{
     signOut(auth)
 }
+//update user data
+const updateUserProfile = (updatedData)=>{
+    return updateProfile(auth.currentUser, updatedData)
+}
 
 
   const context = {
@@ -52,7 +57,7 @@ const logOutUser =()=>{
     logOutUser,
     loginUser,
     loading,
-  
+    updateProfile,
   };
 
   return (

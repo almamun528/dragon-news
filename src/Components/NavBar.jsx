@@ -19,7 +19,13 @@ const NavBar = () => {
           </nav>
 
           <nav className="right flex gap-2 items-center">
-            <FaUser className="text-4xl"></FaUser>
+            {user && user?.email ? <> 
+              <div>
+                <img src={user?.photoURL} alt="" />
+                <p className="w-10 rounded-full"> {user?.displayName} </p>
+              </div>
+            
+              </> : <FaUser className="text-4xl"></FaUser>}
 
             {user && user?.email ? (
               <button
